@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import { Header } from './components/Header'
 
 function App() {
 
   return (
     <div>
-      <h1>Rocket Movies</h1>
+      <Header />
     </div>
   )
 }
