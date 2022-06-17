@@ -6,11 +6,11 @@ export function Header() {
   return(
     <Container>
       <Logo>
-        <strong>RocketMovies</strong>
+        <h1>RocketMovies</h1>
       </Logo>
 
       <Search>
-        <Input />
+        <Input placeholder="Pesquisar pelo Título" />
       </Search>
 
       <Profile>

@@ -17,9 +17,9 @@ export const Container = styled.header`
 `;
 
 export const Logo = styled.div`
-  strong {
+  h1 {
     font-size: 24px;
-    color: ${({ theme }) => theme.COLORS.PINK};
+    color: ${({ theme }) => theme.COLORS.PINK_300};
   }
 `;
 
