@@ -20,14 +20,15 @@ export const Form = styled.form`
     color: ${({ theme }) => theme.COLORS.PINK_300};
   }
 
-  > h2 {
-    font-size: 24px;
-    margin: 48px 0;
-  }
-
   > p {
     font-size: 14px;
     color: ${({ theme }) => theme.COLORS.GRAY_100};
+  }
+
+  > h2 {
+    font-size: 24px;
+    margin: 48px 0;
+    font-weight: 500;
   }
 
   > a {
