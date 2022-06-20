@@ -1,3 +1,4 @@
+import { Stars } from "../Stars";
 import { Tag } from "../Tag";
 
 import { Container } from "./styles";
@@ -5,7 +6,9 @@ import { Container } from "./styles";
 export function Note({ data, ...rest}) {
   return (
     <Container>
-      <h1>{data.title}</h1>
+      <h2>{data.title}</h2>
+      <Stars ratings={data.ratings} />
+      <p>{data.description}</p>
 
       {
         data.tags &&

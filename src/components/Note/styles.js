@@ -10,12 +10,17 @@ export const Container = styled.button`
   padding: 22px;
   margin-bottom: 16px;
 
-  > h1 {
+  > h2 {
     flex: 1;
     text-align: left;
     font-weight: 700;
     font-size: 24px;
     color: ${({ theme }) => theme.COLORS.WHITE};
+  }
+
+  > p { 
+    text-align: justify;
+    color: ${({ theme }) => theme.COLORS.GRAY_100};
   }
 
   > footer {

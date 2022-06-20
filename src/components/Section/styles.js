@@ -8,7 +8,7 @@ export const Container = styled.section`
     margin-bottom: 28px;
 
     color: ${({ theme }) => theme.COLORS.WHITE};
-    font-size: 20px;
+    font-size: 32px;
     font-weight: 400;
   }
 

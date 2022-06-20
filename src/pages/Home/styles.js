@@ -15,5 +15,17 @@ export const Container = styled.div`
 export const Content = styled.div`
   grid-area: content;
   padding: 0 84px;
+  overflow-y: auto;
+  > header {
+  
+    display: flex;
+    align-items:  flex-start;
+    justify-content: space-between;
+    margin-top: 50px;
+    
+    > Button {
+      width: 210px;
+    }
+}
   
 `;
