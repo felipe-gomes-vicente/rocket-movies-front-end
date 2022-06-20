@@ -1,8 +1,6 @@
+import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
+
 import { Container } from './styles';
-import { AiOutlineStar } from 'react-icons/ai';
-import { AiFillStar } from 'react-icons/ai';
-
-
 
 export function Stars({ ratings }) {
   return (
