@@ -37,6 +37,11 @@ export const Form = styled.form`
     margin-top: 124px;
     gap: 8px;
     color: ${({ theme }) => theme.COLORS.PINK_300};
+
+    svg {
+      align-self: center;
+      font-size: 22px;
+    }
   }
 `;
 
