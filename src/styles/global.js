@@ -1,8 +1,7 @@
 import { createGlobalStyle } from "styled-components";
-import { RobotoFont } from "./Fonts";
 
 export default createGlobalStyle`
-  ${RobotoFont}
+
 
   * {
     margin: 0;
