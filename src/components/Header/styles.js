@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.header`
   grid-area: header;
@@ -24,10 +25,10 @@ export const Logo = styled.div`
 `;
 
 export const Search = styled.div`
-    width: 52.5%;
+  width: 52.5%;
 `;
 
-export const Profile = styled.div`
+export const Profile = styled(Link)`
   display: flex;
   align-items: center;
 
@@ -41,13 +42,6 @@ export const Profile = styled.div`
       font-size: 14px;
       color: ${({ theme }) => theme.COLORS.WHITE};
     }
-
-    a {
-      font-size: 14px;
-      color: ${({ theme }) => theme.COLORS.GRAY_100};
-      align-self: end;
-    }
-
   }
 
   > img {
@@ -56,5 +50,12 @@ export const Profile = styled.div`
     border-radius: 50%;
     margin-left: 10px;
   }
+`;
 
+export const Logout = styled.button`
+  background: none;
+  border: none;
+  align-self: end;
+  font-size: 14px;
+  color: ${({ theme }) => theme.COLORS.GRAY_100};
 `;

@@ -1,6 +1,6 @@
 import { Input } from "../Input";
 
-import { Container, Logo, Search, Profile } from "./styles";
+import { Container, Logo, Search, Profile, Logout } from "./styles";
 
 export function Header() {
   return(
@@ -13,10 +13,10 @@ export function Header() {
         <Input placeholder="Pesquisar pelo Título" />
       </Search>
 
-      <Profile>
+      <Profile to="/profile" >
         <div>
           <strong>Felipe Vicente</strong>
-          <a href="#">Sair</a>
+          <Logout>Sair</Logout>
         </div>
 
         <img 

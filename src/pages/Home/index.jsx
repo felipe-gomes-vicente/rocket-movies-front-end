@@ -3,6 +3,8 @@ import { Header } from "../../components/Header";
 import { Note } from "../../components/Note";
 import { Section } from "../../components/Section";
 
+import { Link } from 'react-router-dom';
+
 import { Container, Content } from "./styles";
 
 export function Home() {
@@ -14,7 +16,9 @@ export function Home() {
         <header>
           <Section title="Meus Filmes" />
 
-          <Button title="+ Adicionar filme" />
+          <Link to="/newmovie">
+            <Button title="+ Adicionar filme" />
+          </Link>
         </header>
 
         <Note

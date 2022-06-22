@@ -5,7 +5,6 @@ export const Container = styled.div`
   height: 100vh;
 
   display: grid;
-  grid-template-columns: auto;
   grid-template-rows: 116px auto;
   grid-template-areas: 
   "header"
@@ -19,11 +18,11 @@ export const Content = styled.div`
   > header {
   
     display: flex;
-    align-items:  flex-start;
+    align-items: flex-start;
     justify-content: space-between;
     margin-top: 50px;
     
-    > Button {
+    button {
       width: 210px;
     }
 }
