@@ -1,73 +1,78 @@
-import { Button } from "../../components/Button";
-import { Header } from "../../components/Header";
-import { Note } from "../../components/Note";
-import { Section } from "../../components/Section";
+import { Container, ButtonAdd, Profile, Logout, Avatar } from './styles'
+import { Input } from '../../components/Input';
+import { FiPlus } from 'react-icons/fi'
+import { MovieCard } from '../../components/MovieCard'
+import { useState, useEffect } from 'react';
+import { useAuth } from '../../hooks/auth';
+import { api } from '../../services/api';
+import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
 
-import { Link } from 'react-router-dom';
-
-import { Container, Content } from "./styles";
+import { useNavigate } from 'react-router-dom';
 
 export function Home() {
+  const { signOut, user } = useAuth();
+  const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
+
+  const [search, setSearch] = useState("");
+  const [movies, setMovies] = useState([]);
+
+  const navigate = useNavigate();
+
+  function handleDetails(id) {
+    navigate(`/details/${id}`);
+  }
+
+  useEffect(() => {
+    async function fetchMovieNotes() {
+      const response = await api.get(`/movie_notes?title=${search}`);
+      setMovies(response.data);
+    }
+
+    fetchMovieNotes()
+  }, [search])
+
   return (
     <Container>
-      <Header />
+      <header>
+        <h2>RocketMovies</h2>
+        <Input 
+          type="text" 
+          placeholder="Pesquisar pelo título" 
+          onChange={e => setSearch(e.target.value)}
+          />
+        <Profile>
+          <div>
+            <strong>{user.name}</strong>
+            <Logout onClick={signOut}>sair</Logout>
+          </div>
+          <Avatar to="/profile">
+            <img src={avatarUrl} alt="Foto do Usuário" />
+          </Avatar>
+        </Profile>
+      </header>
 
-      <Content>
-        <header>
-          <Section title="Meus Filmes" />
+      <section>
+        <div>
+          <h1>Meus filmes</h1>
+          <ButtonAdd to="/new">
+            <FiPlus />
+            Adicionar filme
+          </ButtonAdd>
+        </div>
 
-          <Link to="/newmovie">
-            <Button title="+ Adicionar filme" />
-          </Link>
-        </header>
+        <main>
+          {
+            movies.map(movie => (
+              <MovieCard
+                key={String(movie.id)} 
+                data={movie}
+                onClick={() => {handleDetails(movie.id);}}
+              />
+            ))
+          }
 
-        <Note
-          data={{
-            name: "Felipe Vicente",
-            id: 1,
-            title: "Star Wars",
-            ratings: 4,
-            description:
-              "Lorem  adipisicing elit. Quo dolo eaque fuga laborum sse aut itaque sequi esse aut doloremque ullam unde reiciendis, nemo illo necessitatibus veritatis placeat. Placeat, veritatis quisquam debitis voluptas, quos assumenda illum dignissimos vero totam qui, recusandae quae! Voluptatum quia placeat fuga pariatur minus fugit quas, magni eveniet aliquam? Tenetur vero in ea magni veritatis.",
-            tags: [
-              { id: "1", name: "Ficção Cientifica" },
-              { id: "2", name: "Drama" },
-              { id: "3", name: "família" },
-            ],
-          }}
-        />
-
-        <Note
-          data={{
-            name: "Felipe Vicente",
-            id: 2,
-            title: "Interstelar",
-            ratings: 5,
-            description:
-              "Lorem  adipisicing elit. Quo dolo eaque fuga laborum sse aut itaque sequi esse aut doloremque ullam unde reiciendis, nemo illo necessitatibus veritatis placeat. Placeat, veritatis quisquam debitis voluptas, quos assumenda illum dignissimos vero totam qui, recusandae quae! Voluptatum quia placeat fuga pariatur minus fugit quas, magni eveniet aliquam? Tenetur vero in ea magni veritatis.",
-            tags: [
-              { id: "1", name: "Aventura" },
-              { id: "2", name: "Drama" },
-              { id: "3", name: "Ficção Cientifica" },
-            ],
-          }}
-        />
-
-        <Note
-          data={{
-            name: "Felipe Vicente",
-            id: 3,
-            title: "Matrix",
-            ratings: 4,
-            description:
-              "Lorem  adipisicing elit. Quo dolo eaque fuga laborum sse aut itaque sequi esse aut doloremque ullam unde reiciendis, nemo illo necessitatibus veritatis placeat. Placeat, veritatis quisquam debitis voluptas, quos assumenda illum dignissimos vero totam qui, recusandae quae! Voluptatum quia placeat fuga pariatur minus fugit quas, magni eveniet aliquam? Tenetur vero in ea magni veritatis.",
-            tags: [
-              { id: "1", name: "Ação" },
-              { id: "3", name: "Ficção Cientifica" },
-            ],
-          }}
-        />
-      </Content>
+        </main>
+      </section>
     </Container>
-  );
+  )
 }

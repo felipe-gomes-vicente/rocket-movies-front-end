@@ -8,22 +8,30 @@ export const Container = styled.div`
   grid-template-areas:
     'header'
     'content';
+
   > main {
     grid-area: content;
     overflow-y: auto;
+
     padding: 0 123px;
     height: 500px;
-    margin: 40px auto 0;
+    margin-top: 40px;
   }
 `
 
 export const Content = styled.div`
   a {
-    color: ${({ theme }) => theme.COLORS.PINK_300};
+    color: ${({ theme }) => theme.COLORS.PINK};
     font-size: 16px;
+
     display: flex;
     align-items: center;
     gap: 8px;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
   }
 
   width: 100%;
@@ -38,6 +46,7 @@ export const TitleRating = styled.div`
   display: flex;
   align-items: center;
   gap: 19px;
+
   margin-block: 24px;
   > h1 {
     font-size: 36px;
@@ -47,6 +56,7 @@ export const AuthorInfo = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
+
   > div {
     display: flex;
     align-items: center;
@@ -55,11 +65,12 @@ export const AuthorInfo = styled.div`
 
   img {
     width: 18px;
+    height: 18px;
     border-radius: 50%;
   }
-  
+
   svg {
-    color: ${({ theme }) => theme.COLORS.PINK_300};
+    color: ${({ theme }) => theme.COLORS.PINK};
   }
 `
 
@@ -69,7 +80,4 @@ export const Tags = styled.div`
 export const Description = styled.div`
   text-align: justify;
   line-height: 21px;
-  p:nth-child(1) {
-    margin-bottom: 21px;
-  }
 `

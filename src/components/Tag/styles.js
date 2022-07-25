@@ -1,10 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.span`
+  padding: 8px 16px;
+  background-color: ${({ theme, color }) =>
+    color == 'bg-2' ? theme.COLORS.TAG_BG_2 : theme.COLORS.TAG_BG};
+
   font-size: 12px;
-  padding: 5px 14px;
-  border-radius: 5px;
-  margin-right: 6px;
-  color: ${({ theme }) => theme.COLORS.GRAY_100};
-  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
-`;
+  border-radius: 8px;
+  margin-right: 8px;
+`

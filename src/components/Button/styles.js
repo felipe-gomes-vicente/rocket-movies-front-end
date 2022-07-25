@@ -1,18 +1,20 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.button`
   width: 100%;
-  background-color: ${({ theme }) => theme.COLORS.PINK_300};
-  color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
-
   height: 56px;
-  border: 0;
-  padding: 0 16px;
   margin-top: 16px;
+
+  border: none;
   border-radius: 10px;
+
+  color: ${({ theme }) => theme.COLORS.GRAY_500};
+  background-color: ${({ theme }) => theme.COLORS.PINK};
+
+  font-size: 16px;
   font-weight: 500;
 
   &:disabled {
-    opacity: .5;
+    opacity: 0.5;
   }
-`;
+`

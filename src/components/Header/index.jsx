@@ -1,31 +1,32 @@
-import { Input } from "../Input";
+import { Container, Profile, Logout, Avatar } from './styles';
+import { Input } from '../../components/Input';
 
-import { Container, Logo, Search, Profile, Logout } from "./styles";
+import { useAuth } from '../../hooks/auth';
+
+import { api } from '../../services/api';
+import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
 
 export function Header() {
-  return(
+  const { signOut, user } = useAuth();
+
+  const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
+
+  return (
     <Container>
-      <Logo>
-        <h1>RocketMovies</h1>
-      </Logo>
-
-      <Search>
-        <Input placeholder="Pesquisar pelo Título" />
-      </Search>
-
-      <Profile to="/profile" >
+      <h2>RocketMovies</h2>
+      <Input 
+        type="text" 
+        placeholder="Pesquisar pelo título" 
+        />
+      <Profile>
         <div>
-          <strong>Felipe Vicente</strong>
-          <Logout>Sair</Logout>
+          <strong>{user.name}</strong>
+          <Logout to="/" onClick={signOut}>sair</Logout>
         </div>
-
-        <img 
-            src="https://github.com/felipe-gomes-vicente.png"
-            alt="Foto do usuário" 
-          />
-        
+        <Avatar to="/profile">
+          <img src={avatarUrl} alt="Foto do Usuário" />
+        </Avatar>
       </Profile>
-
     </Container>
-  );
+  )
 }

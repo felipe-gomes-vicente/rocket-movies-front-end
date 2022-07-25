@@ -1,23 +1,32 @@
-import styled from "styled-components";
-import backgroundImg from "../../assets/background.png";
+import styled from 'styled-components'
+import backgroundImg from '../../assets/background.png'
 
 export const Container = styled.div`
+  width: 100%;
   height: 100vh;
 
   display: flex;
   align-items: stretch;
-`;
+`
 
 export const Form = styled.form`
-  padding: 0 136px;
+  max-width: 640px;
+  height: 100vh;
+  padding: 0 150px;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+
   > h1 {
     font-size: 48px;
-    color: ${({ theme }) => theme.COLORS.PINK_300};
+    color: ${({ theme }) => theme.COLORS.PINK};
+    line-height: 63px;
+  }
+
+  @media (max-width: 600px) {
+    padding: 0 20px;
+    margin: 0 auto;
   }
 
   > p {
@@ -27,27 +36,21 @@ export const Form = styled.form`
 
   > h2 {
     font-size: 24px;
-    margin: 48px 0;
-    font-weight: 500;
+    margin-block: 48px;
   }
 
   > a {
-    display: flex;
-    align-self: center;
-    margin-top: 124px;
-    gap: 8px;
-    color: ${({ theme }) => theme.COLORS.PINK_300};
-
-    svg {
-      align-self: center;
-      font-size: 22px;
-    }
+    color: ${({ theme }) => theme.COLORS.PINK};
+    text-align: center;
+    margin-top: 42px;
   }
-`;
-
+`
 export const Background = styled.div`
-  flex: 1;
   background: url(${backgroundImg}) no-repeat center center;
   background-size: cover;
-  opacity: 0.4;
-`;
+  flex: 1;
+
+  @media (max-width: 600px) {
+    flex: 0;
+  }
+`
