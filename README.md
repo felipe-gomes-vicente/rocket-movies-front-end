@@ -1,7 +1,7 @@
 # Rocket Movies
 
 <h1 align="center">
-    <img alt="Rocket Movies" title="Rocket Movies" src="" />
+    <img alt="Rocket Movies" title="Rocket Movies" src="./.github/rocketmovies.gif" />
 </h1>
 
 <br>
@@ -29,6 +29,10 @@ What was developed:
 - Functions Callbacks;
 - ES6 Modules;
 - Project file system structure files and folders;
+
+<br />
+<p>Rocket Movies</p>
+<img alt="Rocket Movies" title="Rocket Movies" src="./.github/rocketmovies.png" />
 
 <br />
 ## 🧪 Tools
