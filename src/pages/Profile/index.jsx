@@ -1,17 +1,19 @@
-import { Input } from '../../components/Input';
-import { Button } from '../../components/Button';
-import { Container, Form, Avatar } from './styles';
+import { useState } from 'react'; 
 import { FiArrowLeft, FiCamera, FiUser, FiMail, FiLock } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import { useState } from 'react'; 
 
+import { Input } from '../../components/Input';
+import { Button } from '../../components/Button';
 import { useAuth } from '../../hooks/auth';
-
 import { api } from '../../services/api';
+
 import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
 
+import { Container, Form, Avatar } from './styles';
+
 export function Profile() {
-  const { user, updateProfile, loading } = useAuth();
+  const { user, updateProfile,} = useAuth();
+  const [loading, setLoading] = useState(false);
 
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
@@ -29,8 +31,10 @@ export function Profile() {
       old_password: passwordOld,
       password: passwordNew,
     }
+    setLoading(true);
     const userUpdated = Object.assign(user, updated);
     await updateProfile({ user: userUpdated, avatarFile });
+    setLoading(false);
   }
 
   function handleChangeAvatar(event) {
