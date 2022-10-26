@@ -11,15 +11,20 @@
 Building a Rocket Movies application in Front End with ReactJS and Vite.
 Application to save, rate and manage your favorite movies.
 
+Watch it in action Deploy: [Click Here](http://rocket-movies-front-end.vercel.app/)
+
+Login User: adm@teste.com 
+Password: 123
+
 What was developed:
 
 - Logic and Algorithms with Javascript;
 - Use the Vite;
+- Deploy Front end Vercel, deploy back end heroku;
 - Style and format application with Styled Components;
 - Hooks User authentication;
-- Consume API REST built in NodeJS and ExpressJS Rocket Movies api;
 - Building the application in blocks with components with the ReactJS tool;
-- Navigation with React Router;
+- Navigation with React Router Dom;
 - Data immutability;
 - Promises with Async Await;
 - Route mapping;
@@ -27,6 +32,7 @@ What was developed:
 - Object orientation;
 - Data types in javascipt;
 - Functions Callbacks;
+- Context API;
 - ES6 Modules;
 - Project file system structure files and folders;
 
@@ -59,12 +65,7 @@ installed and Visual Studio Code.
 - [Visual Studio Code - Vscode](https://code.visualstudio.com/)
 - 
   
-Clone the project and access the folder
-
-```bash
-$ git clone https://github.com/felipe-gomes-vicente/rocket-movies-front-end.git
-$ cd rocket-movies-front-end
-```
+<br />
 
 ### Install server and start up
 
@@ -78,9 +79,18 @@ PORT Server localhost:3333
 
 <br />
 
+Clone the project and access the folder
+
+```bash
+$ git clone https://github.com/felipe-gomes-vicente/rocket-movies-front-end.git
+$ cd rocket-movies-front-end
+```
+
+<br />
+
 ## 📝 License
 
-This project is under the MIT license. See the file [LICENSE](LICENSE.md) for more details.
+This project is under the MIT license. See the file [LICENSE](LICENSE) for more details.
 
 ---
 
