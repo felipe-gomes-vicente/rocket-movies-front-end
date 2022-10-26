@@ -12,7 +12,7 @@ import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
 import { Container, Form, Avatar } from './styles';
 
 export function Profile() {
-  const { user, updateProfile,} = useAuth();
+  const { user, updateProfile} = useAuth();
   const [loading, setLoading] = useState(false);
 
   const [name, setName] = useState(user.name);
@@ -57,7 +57,7 @@ export function Profile() {
         <Avatar>
           <img 
             src={avatar} 
-            alt="Foto do Usuário" 
+            alt={`Foto de ${user.name}`}
           />
 
           <label htmlFor="avatar">
